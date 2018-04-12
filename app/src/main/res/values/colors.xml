@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- MAIN COLOR -->
+    <color name="colorMain">#FAFAFA</color>
+    <color name="colorMainDark">#EEEEEE</color>
+    <color name="colorPrimary">#212121</color>
+    <color name="colorPrimaryDark">#212121</color>
+    <color name="colorAccent">#424242</color>
+
+    <!-- BUTTON COLOR -->
+    <color name="colorButtonDefault">#0288D1</color>
+    <color name="colorButtonLogin">#388E3C</color>
+    <color name="colorButtonRegistration">#D32F2F</color>
+
+</resources>
