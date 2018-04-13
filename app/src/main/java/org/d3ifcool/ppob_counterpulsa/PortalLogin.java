@@ -37,6 +37,7 @@ import java.util.ArrayList;
 public class PortalLogin extends Fragment implements View.OnClickListener {
     private EditText login_phone_number, login_password;
     private boolean status;
+    private StorageController storageController;
 
     @Nullable
     @Override
@@ -51,6 +52,8 @@ public class PortalLogin extends Fragment implements View.OnClickListener {
         this.login_phone_number = view.findViewById(R.id.login_phone_number);
         Button login_button = view.findViewById(R.id.login_button);
         Button registration_button = view.findViewById(R.id.registration_button);
+
+        this.storageController = new StorageController(getActivity());
 
         this.status = true;
 
@@ -80,6 +83,12 @@ public class PortalLogin extends Fragment implements View.OnClickListener {
 
         login_button.setOnClickListener(this);
         registration_button.setOnClickListener(this);
+
+        if(this.storageController.checkUserSession()){
+            Intent intent = new Intent(getActivity(), MainView.class);
+            getActivity().finish();
+            startActivity(intent);
+        }
     }
 
     @Override
@@ -92,7 +101,7 @@ public class PortalLogin extends Fragment implements View.OnClickListener {
                     stringBuilder.append("phoneNumber").append("=").append(login_phone_number.getText().toString()).append("&");
                     stringBuilder.append("passWord").append("=").append(login_password.getText().toString());
 
-                    new LoginToServer(stringBuilder).execute();
+                    new LoginToServer(stringBuilder, this.storageController).execute();
                 }
                 else
                     Toast.makeText(getActivity(), checkValidation(), Toast.LENGTH_SHORT).show();
@@ -112,9 +121,11 @@ public class PortalLogin extends Fragment implements View.OnClickListener {
     private class LoginToServer extends AsyncTask<Void, Void, Boolean> {
         private StringBuilder packageLoginToPOST;
         private ProgressDialog progressDialog;
+        private StorageController storageController;
 
-        LoginToServer(StringBuilder packageLoginToPOST) {
+        LoginToServer(StringBuilder packageLoginToPOST, StorageController storageController) {
             this.packageLoginToPOST = packageLoginToPOST;
+            this.storageController = storageController;
         }
 
         @Override
@@ -174,7 +185,9 @@ public class PortalLogin extends Fragment implements View.OnClickListener {
                         rowValues.add(Integer.toString(jsonObject.getInt("current_saldo")));
                         rowValues.add(Integer.toString(jsonObject.getInt("saldo_out")));
 
-                        return new StorageController(getActivity()).setUserSession(columnName, rowValues);
+                        this.storageController.removeUserSession();
+
+                        return this.storageController.setUserSession(columnName, rowValues);
 
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -204,7 +217,7 @@ public class PortalLogin extends Fragment implements View.OnClickListener {
                 Toast.makeText(getActivity(), "Berhasil masuk.", Toast.LENGTH_SHORT).show();
                 Fragment fragment = getActivity().getSupportFragmentManager().findFragmentByTag(PortalView.TAG_PORTAL_LOGIN);
                 getActivity().getSupportFragmentManager().beginTransaction().remove(fragment).commit();
-                Intent intent = getActivity().getIntent();
+                Intent intent = new Intent(getActivity(), MainView.class);
                 getActivity().finish();
                 startActivity(intent);
             }

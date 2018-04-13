@@ -1,6 +1,7 @@
 package org.d3ifcool.ppob_counterpulsa.controller;
 
 import android.app.Activity;
+import android.database.Cursor;
 
 import org.d3ifcool.ppob_counterpulsa.model.StorageModel;
 
@@ -14,11 +15,11 @@ public class StorageController {
         this.activity = activity;
     }
 
-    public void startDB(){
+    private void startDB(){
         this.storageModel = new StorageModel(this.activity);
     }
 
-    public void closeDB(){
+    private void closeDB(){
         this.storageModel.close();
     }
 
@@ -33,5 +34,14 @@ public class StorageController {
         boolean status = this.storageModel.insertToDB("session_user", columnName, rowValue);
         this.closeDB();
         return status;
+    }
+
+    public boolean checkUserSession(){
+        this.startDB();
+        Cursor getUserSession = this.storageModel.getFromDB("select * from session_user");
+        if (getUserSession.getCount() != 0)
+            return true;
+        this.closeDB();
+        return false;
     }
 }
