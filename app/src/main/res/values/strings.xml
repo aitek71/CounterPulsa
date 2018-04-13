@@ -1,0 +1,43 @@
+<resources>
+    <!-- LABEL FRAGMENT / ACTIVITY -->
+    <string name="app_name">Counter Pulsa</string>
+    <string name="label_login">Portal masuk</string>
+    <string name="label_registration">Portal pendaftaran</string>
+    <string name="label_announcement">Pengumuman</string>
+    <string name="label_new_balance">Beli saldo</string>
+    <string name="label_description_balance">Deskripsi pembelian</string>
+    <string name="label_description_product">Deskripsi produk</string>
+    <string name="label_new_transaction">Transaksi baru</string>
+    <string name="label_description_transaction">Deskripsi transaksi</string>
+
+    <!-- LABEL FORM LOGIN -->
+    <string name="login_phone_number">Nomor telepon</string>
+    <string name="login_password">Kata sandi</string>
+    <string name="login_button">Masuk</string>
+
+    <!-- LABEL FORM REGISTRATION AND PROFILE -->
+    <string name="registration_identity_number">Nomor identitas (KTP)</string>
+    <string name="registration_full_name">Nama lengkap</string>
+    <string name="registration_email">Alamat elektronik (E-Mail)</string>
+    <string name="registration_phone_number">Nomor telepon</string>
+    <string name="registration_address">Alamat</string>
+    <string name="registration_password">Kata sandi</string>
+    <string name="registration_button">Daftar</string>
+
+    <!-- LABEL ITEM MENU DRAWER -->
+    <string name="item_home">Beranda</string>
+    <string name="item_balance">Saldo</string>
+    <string name="item_product">Produk</string>
+    <string name="item_transaction">Transaction</string>
+    <string name="item_recap">Rekap</string>
+
+    <!-- COMPONENT LIST -->
+    <string name="pengumuman_not_found">Belum ada pengumuman</string>
+    <string name="balance_not_found">Belum ada pesanan saldo</string>
+    <string name="product_not_found">Belum ada produk</string>
+    <string name="transaction_not_found">Belum ada transaksi</string>
+
+    <!-- QUICK ACCESS -->
+    <string name="quick_access_new_balance">Beli saldo</string>
+    <string name="quick_access_new_transaction">Transaksi baru</string>
+</resources>
