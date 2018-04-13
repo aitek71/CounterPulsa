@@ -1,4 +1,4 @@
-package org.d3ifcool.counterpulsa.model;
+package org.d3ifcool.ppob_counterpulsa.model;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -79,7 +79,7 @@ public class StorageModel extends SQLiteOpenHelper {
         ));
 
         this.tableList.add(new Storage(
-                "transaction",
+                "transaction_user",
                 new String[]{
                         "id_transaction integer",
                         "id_service integer",
@@ -126,7 +126,7 @@ public class StorageModel extends SQLiteOpenHelper {
         for (int i = 0; i < columnName.size() && i < rowValue.size(); i++){
             contentValues.put(columnName.get(i), rowValue.get(i));
         }
-        return sqLiteDatabase.insert(tableName, null, contentValues) <= 0;
+        return sqLiteDatabase.insert(tableName, null, contentValues) > 0;
     }
 
     public Cursor getFromDB(String sql){

@@ -30,7 +30,7 @@
     <string name="item_product">Produk</string>
     <string name="item_transaction">Transaction</string>
     <string name="item_recap">Rekap</string>
-    
+
     <!-- COMPONENT LIST -->
     <string name="pengumuman_not_found">Belum ada pengumuman</string>
     <string name="balance_not_found">Belum ada pesanan saldo</string>

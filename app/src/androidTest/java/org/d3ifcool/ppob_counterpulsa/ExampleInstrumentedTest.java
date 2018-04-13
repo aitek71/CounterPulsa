@@ -1,4 +1,4 @@
-package org.d3ifcool.counterpulsa;
+package org.d3ifcool.ppob_counterpulsa;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("org.d3ifcool.counterpulsa", appContext.getPackageName());
+        assertEquals("org.d3ifcool.ppob_counterpulsa", appContext.getPackageName());
     }
 }

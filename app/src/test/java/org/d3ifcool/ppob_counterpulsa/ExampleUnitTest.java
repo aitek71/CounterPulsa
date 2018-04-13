@@ -1,4 +1,4 @@
-package org.d3ifcool.counterpulsa;
+package org.d3ifcool.ppob_counterpulsa;
 
 import org.junit.Test;
 

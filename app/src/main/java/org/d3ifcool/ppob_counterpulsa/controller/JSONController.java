@@ -1,4 +1,4 @@
-package org.d3ifcool.counterpulsa.controller;
+package org.d3ifcool.ppob_counterpulsa.controller;
 
 import android.app.Activity;
 import android.content.Context;

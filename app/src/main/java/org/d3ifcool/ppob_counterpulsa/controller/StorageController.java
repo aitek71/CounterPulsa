@@ -1,8 +1,10 @@
-package org.d3ifcool.counterpulsa.controller;
+package org.d3ifcool.ppob_counterpulsa.controller;
 
 import android.app.Activity;
 
-import org.d3ifcool.counterpulsa.model.StorageModel;
+import org.d3ifcool.ppob_counterpulsa.model.StorageModel;
+
+import java.util.ArrayList;
 
 public class StorageController {
     private StorageModel storageModel;
@@ -24,5 +26,12 @@ public class StorageController {
         this.startDB();
         this.storageModel.deleteFromDB("session_user", null, null);
         this.closeDB();
+    }
+
+    public boolean setUserSession(ArrayList<String> columnName, ArrayList<String> rowValue){
+        this.startDB();
+        boolean status = this.storageModel.insertToDB("session_user", columnName, rowValue);
+        this.closeDB();
+        return status;
     }
 }
