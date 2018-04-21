@@ -11,5 +11,8 @@
     <color name="colorButtonDefault">#0288D1</color>
     <color name="colorButtonLogin">#388E3C</color>
     <color name="colorButtonRegistration">#D32F2F</color>
+    <color name="colorButtonWarning">#FBC02D</color>
+    <color name="colorButtonDark">#6D4C41</color>
+    <color name="colorButtonSmooth">#5E35B1</color>
 
 </resources>

@@ -18,11 +18,11 @@ public class StorageModel extends SQLiteOpenHelper {
             this.columNameList = columNameList;
         }
 
-        public String getTableName() {
+        String getTableName() {
             return tableName;
         }
 
-        public String[] getColumNameList() {
+        String[] getColumNameList() {
             return columNameList;
         }
     }
