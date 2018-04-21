@@ -87,4 +87,25 @@ public class StorageController {
         this.storageModel.deleteFromDB("purchase_balance", null, null);
         this.closeDB();
     }
+
+    // STOP BALANCE SESSION
+    // START SERVICE SESSION
+
+    public Cursor getService(){
+        this.startDB();
+        Cursor service = this.storageModel.getFromDB("select * from service");
+        if (service.getCount() != 0)
+            return service;
+        this.closeDB();
+        return null;
+    }
+
+    public boolean insertService(ArrayList<String> columnName, ArrayList<String> rowsValue){
+        this.startDB();
+        boolean status = this.storageModel.insertToDB("service", columnName, rowsValue);
+        this.closeDB();
+        return status;
+    }
+
+    // STOP SERVICE SESSION
 }
