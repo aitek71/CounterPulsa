@@ -108,4 +108,42 @@ public class StorageController {
     }
 
     // STOP SERVICE SESSION
+    // START TRANSACTION SESSION
+
+    public Cursor getTransaction(){
+        this.startDB();
+        Cursor service = this.storageModel.getFromDB("select * from transaction_user");
+        if (service.getCount() != 0)
+            return service;
+        this.closeDB();
+        return null;
+    }
+
+    public boolean insertTransaction(ArrayList<String> columnName, ArrayList<String> rowsValue){
+        this.startDB();
+        boolean status = this.storageModel.insertToDB("transaction_user", columnName, rowsValue);
+        this.closeDB();
+        return status;
+    }
+
+    // STOP TRANSACTION SESSION
+    // START ANNOUNCEMENT SESSION
+
+    public boolean insertAnnouncement(ArrayList<String> columnName, ArrayList<String> rowsValue){
+        this.startDB();
+        boolean status = this.storageModel.insertToDB("announcement", columnName, rowsValue);
+        this.closeDB();
+        return status;
+    }
+
+    public Cursor getAnnouncement(){
+        this.startDB();
+        Cursor service = this.storageModel.getFromDB("select * from announcement");
+        if (service.getCount() != 0)
+            return service;
+        this.closeDB();
+        return null;
+    }
+
+    // STOP ANNOUNCEMENT SESSION
 }

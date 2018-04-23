@@ -88,7 +88,7 @@ public class PurchaseBalanceAdapter extends BaseAdapter {
                 purchaseStatus.setTextColor(purchaseStatus.getResources().getColor(R.color.colorButtonRegistration));
             }
 
-            purchaseDateTime.setText("TRX : " + myDate + " | " + myTime);
+            purchaseDateTime.setText("PSN : " + myDate + " | " + myTime);
             purchaseDescription.setText("Pengisian dompet sebesar Rp." + item_list.get(i).getNominal_purchase() + " dengan harga Rp." + item_list.get(i).getBalance_price());
             purchaseStatus.setText(status);
         } catch (ParseException e) {

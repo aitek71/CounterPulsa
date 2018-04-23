@@ -60,13 +60,13 @@ public class FragmentMain extends Fragment implements AdapterView.OnItemClickLis
                 fragment = new FragmentBalance();
                 break;
             case 1:
-//                fragment = new FragmentService();
+                fragment = new FragmentService();
                 break;
             case 2:
                 fragment = new FragmentTransaction();
                 break;
             case 3:
-//                fragment = new FragmentRecap();
+                fragment = new FragmentRecapTransaction();
                 break;
             case 4:
 //                fragment = new FragmentAnnouncement();

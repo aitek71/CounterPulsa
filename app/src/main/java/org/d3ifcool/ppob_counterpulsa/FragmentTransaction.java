@@ -1,5 +1,6 @@
 package org.d3ifcool.ppob_counterpulsa;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.database.Cursor;
 import android.os.AsyncTask;
@@ -33,10 +34,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
-/**
- * Created by Andy on 4/21/2018.
- */
-
 public class FragmentTransaction extends Fragment {
     @Nullable
     @Override
@@ -48,6 +45,7 @@ public class FragmentTransaction extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        //noinspection ConstantConditions
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getResources().getString(R.string.item_transaction));
 
         final Spinner spinner = view.findViewById(R.id.loadService);
@@ -59,7 +57,7 @@ public class FragmentTransaction extends Fragment {
             while (getService.moveToNext()){
                 spinnerList.add(getService.getString(getService.getColumnIndex("service_name")));
             }
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, spinnerList);
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, spinnerList);
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spinner.setAdapter(adapter);
         }
@@ -88,11 +86,12 @@ public class FragmentTransaction extends Fragment {
         });
     }
 
+    @SuppressLint("StaticFieldLeak")
     private class newTransaction extends AsyncTask<Void, Void, Boolean>{
         private StringBuilder packageServiceOrderToPOST;
         private ProgressDialog progressDialog;
 
-        public newTransaction(StringBuilder packageServiceOrderToPOST) {
+        newTransaction(StringBuilder packageServiceOrderToPOST) {
             this.packageServiceOrderToPOST = packageServiceOrderToPOST;
         }
 
@@ -158,13 +157,14 @@ public class FragmentTransaction extends Fragment {
         }
     }
 
+    @SuppressLint("StaticFieldLeak")
     private class loadService extends AsyncTask<Void, Void, Boolean>{
         private StringBuilder packageServiceOrderToPOST;
         private StorageController storageController;
         private Spinner spinner;
         private ArrayList<String> spinnerList;
 
-        public loadService(StringBuilder packageServiceOrderToPOST, StorageController storageController, Spinner spinner) {
+        loadService(StringBuilder packageServiceOrderToPOST, StorageController storageController, Spinner spinner) {
             this.packageServiceOrderToPOST = packageServiceOrderToPOST;
             this.storageController = storageController;
             this.spinner = spinner;
@@ -238,7 +238,7 @@ public class FragmentTransaction extends Fragment {
             if(!aBoolean)
                 Toast.makeText(getActivity(), "Gagal menghubungi server", Toast.LENGTH_SHORT).show();
             else {
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, this.spinnerList);
+                ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, this.spinnerList);
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spinner.setAdapter(adapter);
             }
