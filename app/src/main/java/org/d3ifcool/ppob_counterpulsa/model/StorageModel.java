@@ -18,11 +18,11 @@ public class StorageModel extends SQLiteOpenHelper {
             this.columNameList = columNameList;
         }
 
-        public String getTableName() {
+        String getTableName() {
             return tableName;
         }
 
-        public String[] getColumNameList() {
+        String[] getColumNameList() {
             return columNameList;
         }
     }
@@ -86,7 +86,22 @@ public class StorageModel extends SQLiteOpenHelper {
                         "phone_number text",
                         "date text",
                         "time text",
-                        "transaction_status integer"
+                        "transaction_status integer",
+                        "service_name text",
+                        "service_category text",
+                        "service_price integer"
+                }
+        ));
+
+        this.tableList.add(new Storage(
+                "announcement",
+                new String[]{
+                        "id_announcement integer",
+                        "title text",
+                        "description text",
+                        "date text",
+                        "time text",
+                        "image_resource text"
                 }
         ));
 

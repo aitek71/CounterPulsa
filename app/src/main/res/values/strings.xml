@@ -4,7 +4,7 @@
     <string name="label_login">Portal masuk</string>
     <string name="label_registration">Portal pendaftaran</string>
     <string name="label_announcement">Pengumuman</string>
-    <string name="label_new_balance">Beli saldo</string>
+    <string name="label_new_balance">Beli</string>
     <string name="label_description_balance">Deskripsi pembelian</string>
     <string name="label_description_product">Deskripsi produk</string>
     <string name="label_new_transaction">Transaksi baru</string>
@@ -25,11 +25,12 @@
     <string name="registration_button">Daftar</string>
 
     <!-- LABEL ITEM MENU DRAWER -->
-    <string name="item_home">Beranda</string>
-    <string name="item_balance">Saldo</string>
+    <string name="item_home">Pengumuman</string>
+    <string name="item_balance">Dompet</string>
     <string name="item_product">Produk</string>
-    <string name="item_transaction">Transaction</string>
+    <string name="item_transaction">Transaksi</string>
     <string name="item_recap">Rekap</string>
+    <string name="item_user">Pengguna</string>
 
     <!-- COMPONENT LIST -->
     <string name="pengumuman_not_found">Belum ada pengumuman</string>
@@ -38,6 +39,10 @@
     <string name="transaction_not_found">Belum ada transaksi</string>
 
     <!-- QUICK ACCESS -->
-    <string name="quick_access_new_balance">Beli saldo</string>
+    <string name="quick_access_new_balance">Beli</string>
     <string name="quick_access_new_transaction">Transaksi baru</string>
+
+    <!-- TEXT -->
+    <string name="text_your_balance">Dompet anda</string>
+    <string name="text_nominal_balance">Nominal pembelian</string>
 </resources>
